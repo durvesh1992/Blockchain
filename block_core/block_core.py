@@ -1,5 +1,3 @@
-print ("hide")
-
 import time
 import hashlib
 
