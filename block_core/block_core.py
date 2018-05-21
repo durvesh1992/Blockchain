@@ -158,7 +158,7 @@ if __name__  ==  "__main__":
 
     print(">>>>> Empty Block data List...Before Mining")
     print(blockchain.chain)  # Empty List
-
+    print ("Length of the blockchain list :",len(blockchain.chain))
 
     last_block = blockchain.get_last_block
     last_proof = last_block.proof
@@ -178,5 +178,6 @@ if __name__  ==  "__main__":
     last_hash = last_block.get_block_hash
     block = blockchain.create_new_block(proof, last_hash)
 
-    print(">>>>> After Mining...")
+    print("\n >>>>> After Mining...")
     print(blockchain.chain)
+    print ("Length of the blockchain list :",len(blockchain.chain))
