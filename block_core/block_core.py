@@ -96,6 +96,7 @@ class BlockChain(object):
     @property
     def get_last_block(self):
         return self.chain[-1]
+        # Chain is the List of blocks. chain[-1] is the last element
 
     def is_valid_chain(self):
         """
@@ -148,11 +149,12 @@ class BlockChain(object):
             block_data['transactions'],
             timestamp=block_data['timestamp']
         )
-
+# BlockChain Object of Class Block
 blockchain = BlockChain()
 
-print(">>>>> Before Mining...")
-print(blockchain.chain)
+print(">>>>> Empty Block data List...Before Mining")
+print(blockchain.chain)  # Empty List
+
 
 last_block = blockchain.get_last_block
 last_proof = last_block.proof
@@ -160,6 +162,9 @@ proof = blockchain.create_proof_of_work(last_proof)
 
 # Sender "0" means that this node has mined a new block
 # For mining the Block(or finding the proof), we must be awarded with some amount(in our case this is 1)
+
+# Creating new transaction. Adding the details
+# create_new_transaction is the function implemented in BlockChain Class to create new Transaction
 blockchain.create_new_transaction(
     sender="0",
     recipient="address_x",
