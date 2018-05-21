@@ -149,30 +149,34 @@ class BlockChain(object):
             block_data['transactions'],
             timestamp=block_data['timestamp']
         )
-# BlockChain Object of Class Block
-blockchain = BlockChain()
 
-print(">>>>> Empty Block data List...Before Mining")
-print(blockchain.chain)  # Empty List
+# Driver Program for the blockchain Class
+if __name__  ==  "__main__":
+
+    # BlockChain Object of Class Block
+    blockchain = BlockChain()
+
+    print(">>>>> Empty Block data List...Before Mining")
+    print(blockchain.chain)  # Empty List
 
 
-last_block = blockchain.get_last_block
-last_proof = last_block.proof
-proof = blockchain.create_proof_of_work(last_proof)
+    last_block = blockchain.get_last_block
+    last_proof = last_block.proof
+    proof = blockchain.create_proof_of_work(last_proof)
 
-# Sender "0" means that this node has mined a new block
-# For mining the Block(or finding the proof), we must be awarded with some amount(in our case this is 1)
+    # Sender "0" means that this node has mined a new block
+    # For mining the Block(or finding the proof), we must be awarded with some amount(in our case this is 1)
 
-# Creating new transaction. Adding the details
-# create_new_transaction is the function implemented in BlockChain Class to create new Transaction
-blockchain.create_new_transaction(
-    sender="0",
-    recipient="address_x",
-    amount=1,
-)
+    # Creating new transaction. Adding the details
+    # create_new_transaction is the function implemented in BlockChain Class to create new Transaction
+    blockchain.create_new_transaction(
+        sender="0",
+        recipient="address_x",
+        amount=1,
+    )
 
-last_hash = last_block.get_block_hash
-block = blockchain.create_new_block(proof, last_hash)
+    last_hash = last_block.get_block_hash
+    block = blockchain.create_new_block(proof, last_hash)
 
-print(">>>>> After Mining...")
-print(blockchain.chain)
+    print(">>>>> After Mining...")
+    print(blockchain.chain)
